@@ -18,4 +18,8 @@ export class UserService {
     async getByEmail(email: string): Promise<User> {
         return this.userRepository.findOne({ where: { email } });
     }
+
+    async getLoginData(userData: Partial<User>): Promise<User> {
+        return this.userRepository.findOne({ where: userData });
+    }
 }
