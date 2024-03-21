@@ -1,1 +1,4 @@
 npm install pg @nestjs/typeorm typeorm
+
+npm install jsonwebtoken
+
