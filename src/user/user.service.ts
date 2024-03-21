@@ -14,4 +14,8 @@ export class UserService {
         const user = this.userRepository.create(userData);
         return this.userRepository.save(user);
     }
+
+    async getByEmail(email: string): Promise<User> {
+        return this.userRepository.findOne({ where: { email } });
+    }
 }

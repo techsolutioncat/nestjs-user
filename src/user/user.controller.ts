@@ -1,4 +1,4 @@
-import { Controller, Post, Body } from '@nestjs/common';
+import { Controller, Post, Body, Get, Param } from '@nestjs/common';
 import * as jwt from 'jsonwebtoken';
 import { UserService } from './user.service';
 
@@ -13,5 +13,10 @@ export class UserController {
     userData.accessToken = token;
     userData.refreshToken = token;
     return this.userService.createUser(userData);
+  }
+
+  @Get(':email')
+  async getByEmail(@Param('email') email: string) {
+    return this.userService.getByEmail(email);
   }
 }
