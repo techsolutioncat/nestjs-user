@@ -15,9 +15,9 @@ export class UserController {
     return this.userService.createUser(userData);
   }
 
-  @Get(':email')
-  async getByEmail(@Param('email') email: string) {
-    return this.userService.getByEmail(email);
+  @Post('users/get')
+  async getOneByEmail(@Body() userData: any) {
+    return this.userService.getOneByEmail(userData.email);
   }
 
   @Post('users/login')
