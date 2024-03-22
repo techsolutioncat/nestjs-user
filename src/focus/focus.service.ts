@@ -17,6 +17,15 @@ export class FocusService {
 
     async updateData(id: any, FocusData: Partial<Focus>): Promise<Focus> {
         const data = this.FocusRepository.update(id, FocusData);
-        return this.FocusRepository.findOne(id);
+        return this.FocusRepository.findOne({where: {id: id}});
+    }
+
+    async findAll(limit: any): Promise<Focus[]> {
+        return this.FocusRepository.find({
+            order: {
+                id: 'DESC' // Assuming 'id' is the field you want to sort by
+            },
+            take: limit * 6,
+        });
     }
 }

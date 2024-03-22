@@ -13,4 +13,9 @@ export class FocusController {
     else
       return this.FocusService.updateData(data.id, data.data);
   }
+
+  @Post('focus/all')
+  async findAll(@Body() data: any) {
+    return this.FocusService.findAll(data.limit);
+  }
 }
