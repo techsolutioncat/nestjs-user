@@ -18,4 +18,10 @@ export class FocusController {
   async findAll(@Body() data: any) {
     return this.FocusService.findAll(data.limit);
   }
+
+  @Post('focus/remove')
+  async remove(@Body() data: any) {
+    return this.FocusService.remove(data.id);
+  }
+  
 }

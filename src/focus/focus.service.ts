@@ -28,4 +28,8 @@ export class FocusService {
             take: limit * 6,
         });
     }
+
+    async remove(id: any) {
+        return this.FocusRepository.delete({id});
+    }
 }
