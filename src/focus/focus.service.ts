@@ -17,7 +17,7 @@ export class FocusService {
 
     async updateData(id: any, FocusData: Partial<Focus>): Promise<Focus> {
         const data = this.FocusRepository.update(id, FocusData);
-        return this.FocusRepository.findOne({where: {id: id}});
+        return this.FocusRepository.findOne({ where: { id: id } });
     }
 
     async findAll(limit: any): Promise<Focus[]> {
@@ -29,7 +29,11 @@ export class FocusService {
         });
     }
 
+    async getAllDataCount(): Promise<number> {
+        return this.FocusRepository.count();
+    }
+
     async remove(id: any) {
-        return this.FocusRepository.delete({id});
+        return this.FocusRepository.delete({ id });
     }
 }

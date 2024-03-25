@@ -13,13 +13,17 @@ export class FocusController {
     } else {
       this.FocusService.updateData(data.id, data.data);
     }
-
     return this.FocusService.findAll(data.limit);
   }
 
   @Post('focus/all')
   async findAll(@Body() data: any) {
     return this.FocusService.findAll(data.limit);
+  }
+
+  @Post('focus/count')
+  async getAllDataCount(@Body() data: any) {
+    return this.FocusService.getAllDataCount();
   }
 
   @Post('focus/remove')
